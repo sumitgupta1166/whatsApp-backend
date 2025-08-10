@@ -1,0 +1,145 @@
+{
+  "info": {
+    "name": "WhatsApp Backend - Tests",
+    "_postman_id": "whatsapp-backend-tests-2025-08-10T13:53:33.826237",
+    "description": "Collection to test backend endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Chats (alias)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/chats",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "chats"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Conversations (original)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/conversations",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "conversations"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get messages alias",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/messages/919937320320",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "messages",
+            "919937320320"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get messages original",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/api/conversations/919937320320/messages",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "conversations",
+            "919937320320",
+            "messages"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Send message",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"to\": \"919937320320\", \"text\": \"Hello from Postman\" }"
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/messages",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "messages"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Post webhook sample",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"metaData\": { \"entry\": [ { \"changes\": [ { \"value\": { \"contacts\": [ { \"profile\": { \"name\": \"Ravi Kumar\" }, \"wa_id\": \"919937320320\" } ], \"messages\": [ { \"from\": \"919937320320\", \"id\": \"wamid.test1\", \"timestamp\": \"1754400000\", \"text\": { \"body\": \"Hi, I\u2019d like to know more about your services.\" }, \"type\": \"text\" } ], \"messaging_product\": \"whatsapp\", \"metadata\": { \"display_phone_number\": \"918329446654\", \"phone_number_id\": \"629305560276479\" } } } ] } }"
+        },
+        "url": {
+          "raw": "http://localhost:4000/api/webhook",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "webhook"
+          ]
+        }
+      }
+    }
+  ]
+}
