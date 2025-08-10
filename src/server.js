@@ -28,6 +28,11 @@ const startApp = async () => {
 
     app.use(express.json());
 
+    // Root route for Vercel & health check
+    app.get("/", (req, res) => {
+      res.send("Backend API is running");
+    });
+
     // API routes
     app.use('/api', apiRoutes);
     app.use('/api', chatRoutes); // alias routes for frontend compatibility
@@ -36,7 +41,7 @@ const startApp = async () => {
     const io = new SocketIOServer(httpServer, {
       cors: {
         origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
-        methods: ['GET','POST'],
+        methods: ['GET', 'POST'],
         credentials: true
       }
     });
