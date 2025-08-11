@@ -22,7 +22,7 @@ const startApp = async () => {
 
     // CORS - allow frontend origin (adjust as needed)
     app.use(cors({
-      origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5173',
+      origin: process.env.FRONTEND_ORIGIN || "*",
       credentials: true
     }));
 
